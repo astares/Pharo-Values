@@ -59,11 +59,35 @@ Object >> isEqualValue: anObject [
 ]
 
 { #category : #'*Values-Core' }
+Object class >> nameOrNilFor: aValue [
+	"<Symbol | nil>"
+
+	^ self namesByValues at: aValue ifAbsent: [nil]
+]
+
+{ #category : #'*Values-Core' }
 Object class >> namedValueNames [
 	"<Array of: Symbol>
 	names to print for special known values"
 	
 	^#()
+]
+
+{ #category : #'*Values-Core' }
+Object class >> namesByValues [
+	"<Dictionary key: Value value: Symbol>"
+
+	^ Value namedValuesAt: self ifAbsentPut: [ self newNamesByValues ]
+]
+
+{ #category : #'*Values-Core' }
+Object class >> newNamesByValues [
+	"<Dictionary key: Value value: Symbol>"
+
+	| dict |
+	dict := ValueMap new: self namedValueNames size.
+	self namedValueNames do: [:symbol | dict at: (self perform: symbol) put: symbol].
+	^dict
 ]
 
 { #category : #'*Values-Core' }

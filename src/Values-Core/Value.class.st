@@ -23,6 +23,38 @@ Value class >> isAbstract [
 	^ self == Value
 ]
 
+{ #category : #'named values' }
+Value class >> namedValuesAt: aClass [
+	"<Dictionary key: Value value: Symbol>
+	the named instances of aClass"
+
+	^ self namedValuesRegistry at: aClass ifAbsent: [ Dictionary new ]
+]
+
+{ #category : #'named values' }
+Value class >> namedValuesAt: aClass ifAbsentPut: aBlock [
+	"<Dictionary key: Value value: Symbol>
+	the named instances of aClass"
+
+	^ self namedValuesRegistry at: aClass ifAbsentPut: aBlock
+]
+
+{ #category : #'named values' }
+Value class >> namedValuesRegistry [
+	"<Dictionary key: Class value: (Dictionary key: Value value: Symbol)>
+	the named instances of classes.
+	This is a light weight implementation to hold all named instances of all classes, instead of storing them with the class"
+	
+	^ NamedValuesRegistry ifNil: [ NamedValuesRegistry := Dictionary new ]
+]
+
+{ #category : #'class initialization' }
+Value class >> resetNamedValuesRegistry [
+	<script>
+
+	NamedValuesRegistry := nil
+]
+
 { #category : #comparing }
 Value >> = anObject [
 	"all instvars must be equal"

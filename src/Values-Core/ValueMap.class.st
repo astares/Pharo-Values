@@ -51,6 +51,12 @@ ValueMap class >> example [
 	^map
 ]
 
+{ #category : #'instance creation' }
+ValueMap class >> new: sizeRequested [
+
+	^ self new initialize: sizeRequested 
+]
+
 { #category : #accessing }
 ValueMap >> = otherValueMap [
 
@@ -63,75 +69,87 @@ ValueMap >> = otherValueMap [
 { #category : #accessing }
 ValueMap >> add: anAssociation [ 
 
-	orderedDictionary add: anAssociation 
+	self orderedDictionary add: anAssociation 
 ]
 
 { #category : #accessing }
 ValueMap >> addAll: aKeyedCollection [
 
-	^ orderedDictionary addAll: aKeyedCollection
+	^ self orderedDictionary addAll: aKeyedCollection
 ]
 
 { #category : #accessing }
 ValueMap >> at: key [ 
 	"Answer the value associated with the key."
 
-	^ orderedDictionary at: key
+	^ self orderedDictionary at: key
 ]
 
 { #category : #accessing }
 ValueMap >> at: aKey ifAbsent: aBlock [
 
-	^ orderedDictionary at: aKey ifAbsent: aBlock
+	^ self orderedDictionary at: aKey ifAbsent: aBlock
 ]
 
 { #category : #accessing }
 ValueMap >> at: key put: anObject [ 
 
-	^ orderedDictionary at: key put: anObject 
+	^ self orderedDictionary at: key put: anObject 
 ]
 
 { #category : #accessing }
 ValueMap >> atIndex: anInteger [ 
 
-	^ orderedDictionary associationAt: (orderedDictionary keys at: anInteger)
+	^ self orderedDictionary associationAt: (orderedDictionary keys at: anInteger)
 ]
 
 { #category : #enumerating }
 ValueMap >> do: aBlock [ 
 	"Evaluate aBlock with each of the receiver's elements as the argument."
 
-	^ orderedDictionary associations do: aBlock
+	^ self orderedDictionary associations do: aBlock
 ]
 
 { #category : #accessing }
 ValueMap >> indexOf: aSymbol [ 
  
-	^ orderedDictionary indexOfKey: aSymbol 
+	^ self orderedDictionary indexOfKey: aSymbol 
 ]
 
 { #category : #initialization }
-ValueMap >> initialize [
+ValueMap >> initialize2 [
 	super initialize.
 	orderedDictionary := OrderedDictionary new
+]
+
+{ #category : #initialization }
+ValueMap >> initialize: n [
+
+	orderedDictionary := OrderedDictionary new: n
 ]
 
 { #category : #testing }
 ValueMap >> isEmpty [
 
-	^ orderedDictionary isEmpty 
+	^ self orderedDictionary isEmpty 
 ]
 
 { #category : #accessing }
 ValueMap >> keys [
 
-	^ orderedDictionary keys
+	^ self orderedDictionary keys
 ]
 
 { #category : #iterating }
 ValueMap >> keysDo: aBlockClosure [ 
 	
 	^ orderedDictionary keysDo: aBlockClosure 
+]
+
+{ #category : #'private - accessing' }
+ValueMap >> orderedDictionary [
+
+	^ orderedDictionary ifNil: [ orderedDictionary := OrderedDictionary new ]
 ]
 
 { #category : #removing }
@@ -142,19 +160,18 @@ ValueMap >> remove: anObject ifAbsent: aBlock [
 { #category : #accessing }
 ValueMap >> removeKey: aKey [ 
 
-	^ orderedDictionary removeKey: aKey
+	^ self orderedDictionary removeKey: aKey
 ]
 
 { #category : #accessing }
 ValueMap >> removeKey: aKey ifAbsent: aBlock [ 
 	
-
-	^ orderedDictionary removeKey: aKey ifAbsent: aBlock 
+	^ self orderedDictionary removeKey: aKey ifAbsent: aBlock 
 	
 ]
 
 { #category : #accessing }
 ValueMap >> values [
 
-	^ orderedDictionary values
+	^ self orderedDictionary values
 ]
