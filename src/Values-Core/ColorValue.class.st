@@ -118,10 +118,40 @@ ColorValue >> asGrayValue [
 	^ self brightness
 ]
 
+{ #category : #accessing }
+ColorValue >> cyan [
+	"<Number[0..1]>
+	the cyan part of the receiver"
+
+	^ 1.0 - self red
+]
+
+{ #category : #testing }
+ColorValue >> isEmpty [
+
+	^self privateRGB isNil
+]
+
+{ #category : #accessing }
+ColorValue >> magenta [
+	"<Number[0..1]>
+	the magenta part of the receiver"
+
+	^ 1.0 - self green
+]
+
 { #category : #converting }
 ColorValue >> rgbIndex [
 	"<Integer>
 	Three 8 bit RGB numbers interpreted as number for ordering"
 
 	^ self asByteArray inject: 0 into: [:num :byte | (num bitShift: 8) + byte ]
+]
+
+{ #category : #accessing }
+ColorValue >> yellow [
+	"<Number[0..1]>
+	the yellow part of the receiver"
+
+	^ 1.0 - self blue
 ]

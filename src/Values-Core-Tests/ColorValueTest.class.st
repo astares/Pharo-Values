@@ -17,6 +17,15 @@ ColorValueTest >> setUp [
 ]
 
 { #category : #tests }
+ColorValueTest >> testAccessing [
+
+	self 
+		assert: ColorValue yellow yellow equals: 1.0;
+		assert: ColorValue cyan cyan equals: 1.0;
+		assert: ColorValue magenta magenta equals: 1.0
+]
+
+{ #category : #tests }
 ColorValueTest >> testConversionToByteArray [
 
 	self 
