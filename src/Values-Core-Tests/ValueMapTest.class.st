@@ -92,8 +92,8 @@ ValueMapTest >> testEnumeration [
 { #category : #'tests - failing' }
 ValueMapTest >> testExampleSource [
 	self assert: ValueMap example asSource equals: 
-'((Valuemap new: 17)
-	add: #title -> ''Valuemap class example with examples of all basic values'';
+'((ValueMap new: 17)
+	add: #title -> ''ValueMap class example with examples of all basic values'';
 	add: #boolean -> true;
 	add: #character -> $A;
 	add: #symbol -> #mySymbol;
@@ -109,7 +109,7 @@ ValueMapTest >> testExampleSource [
 	add: #knownColor -> ColorValue red;
 	add: #array -> #(#one ''two'' 3);
 	add: #bytearray -> #[1 2 3];
-	add: #valuemap -> (Valuemap
+	add: #valuemap -> (ValueMap
 		with: #test -> true
 		with: #two -> 2
 		with: #none -> nil);

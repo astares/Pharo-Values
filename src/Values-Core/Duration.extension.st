@@ -1,6 +1,12 @@
 Extension { #name : #Duration }
 
 { #category : #'*Values-Core' }
+Duration >> asNanoseconds [
+
+	^ self asNanoSeconds
+]
+
+{ #category : #'*Values-Core' }
 Duration class >> nanoseconds: aNumber [
 
 	^self nanoSeconds: aNumber
@@ -12,7 +18,7 @@ Duration >> printValueWith: printer [
 	wst := WriteStream on: (String new: 25).
 	wst
 		nextPut: $(;
-		nextPutAll: (printer classnameOf: self);
+		nextPutAll: (printer classNameOf: self);
 		nextPutAll: ' nanoseconds: ';
 		nextPutAll: self asNanoseconds printString;
 		nextPut: $).

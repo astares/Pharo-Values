@@ -73,9 +73,9 @@ ValuePrinter >> optional: selectorName value: object [
 ValuePrinter >> printValue: aValue arguments: arguments [
 
 	aValue class new = aValue ifTrue: [ 
-		^ ValuePrintValue classname: (self classnameOf: aValue) ].
+		^ ValuePrintValue classname: (self classNameOf: aValue) ].
 	^ ValuePrintValue
-		  className: (self classnameOf: aValue)
+		  className: (self classNameOf: aValue)
 		  arguments: (arguments select: [ :arg | arg notNil ])
 ]
 

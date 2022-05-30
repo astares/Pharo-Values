@@ -26,12 +26,12 @@ Time >> printValueWith: printer [
 	self minutes isZero and: [
 	self seconds isZero]]) ifTrue: [
 			wst
-				nextPutAll: (printer classnameOf: self);
+				nextPutAll: (printer classNameOf: self);
 				nextPutAll: ' zero'.
 			^LiteralPrintValue string: wst contents].
 	wst
 		nextPut: $(;
-		nextPutAll: (printer classnameOf: self);
+		nextPutAll: (printer classNameOf: self);
 		nextPutAll: ' h: ';
 		nextPutAll: self hours printString.
 	(self minutes isZero and: [

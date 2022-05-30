@@ -49,7 +49,7 @@ Timestamp >> printValueWith: printer [
 	wst := WriteStream on: (String new: 50).
 	wst
 		nextPut: $(;
-		nextPutAll: (printer classnameOf: self);
+		nextPutAll: (printer classNameOf: self);
 		nextPutAll: ' d: ';
 		nextPutAll: self dayOfMonth printString;
 		nextPutAll: ' m: ';

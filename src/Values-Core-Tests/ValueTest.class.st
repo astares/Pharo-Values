@@ -4,6 +4,12 @@ Class {
 	#category : #'Values-Core-Tests-Base'
 }
 
+{ #category : #'tests - extensions' }
+ValueTest >> testAsNanoseconds [
+
+	self assert: 1 milliSecond asNanoseconds equals: 1000000
+]
+
 { #category : #'tests - class' }
 ValueTest >> testIsAbstract [ 
 

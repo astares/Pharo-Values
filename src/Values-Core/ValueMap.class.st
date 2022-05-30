@@ -154,6 +154,15 @@ ValueMap >> orderedDictionary [
 ]
 
 { #category : #printing }
+ValueMap >> printArgumentsWith: aPrinter [
+
+	^ self keysForPrinting collect: [ :key | 
+		  DictionaryPrintArgument
+			  name: (key printValueWith: aPrinter)
+			  value: ((self at: key) printValueWith: aPrinter) ]
+]
+
+{ #category : #printing }
 ValueMap >> printValueWith: printer [
 
 	^ DictionaryPrintValue arguments: (self printArgumentsWith: printer) isOrdered: true
