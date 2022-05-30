@@ -9,7 +9,7 @@ To load run
 ```Smalltalk
 Metacello new
    baseline:'Values';
-   repository: 'github://astares/Pharo-Values:master/src';
+   repository: 'github://astares/Pharo-Values:main/src';
    load
 ```
 
