@@ -52,6 +52,9 @@ ColorValueTest >> testConversionToGrayValue [
 { #category : #tests }
 ColorValueTest >> testNamedColors [
 
-	self assert: ColorValue black class equals: ColorValue
+	self assert: ColorValue black class equals: ColorValue.
+	
+	ColorValue namedValueNames do: [:selector | 
+		self assert: (ColorValue perform: selector) equals: (Color perform: selector) asColorValue ]
 		
 ]
