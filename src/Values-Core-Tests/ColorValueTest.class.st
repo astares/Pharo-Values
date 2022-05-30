@@ -12,8 +12,8 @@ Class {
 ColorValueTest >> setUp [
 
 	super setUp.
-	white := Color white asColorValue.
-	black := Color black asColorValue.
+	white := ColorValue white.
+	black := ColorValue black
 ]
 
 { #category : #tests }
@@ -47,4 +47,11 @@ ColorValueTest >> testConversionToGrayValue [
 	self 
 		assert: black asGrayValue equals: 0.0;
 		assert: white asGrayValue equals: 1.0
+]
+
+{ #category : #tests }
+ColorValueTest >> testNamedColors [
+
+	self assert: ColorValue black class equals: ColorValue
+		
 ]
