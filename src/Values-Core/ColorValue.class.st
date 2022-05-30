@@ -39,3 +39,11 @@ ColorValue >> asByteArray [
 		with: (self green * 255) truncated
 		with: (self blue * 255) truncated
 ]
+
+{ #category : #converting }
+ColorValue >> asGrayValue [
+	"<Number>
+	between 0.0 (Black) and 1.0 (White) suitable for PDF DeviceGray"
+
+	^ self brightness
+]
