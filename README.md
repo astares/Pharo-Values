@@ -1,7 +1,7 @@
 # Pharo-Values
 
-[![Unit Tests](https://github.com/astares/Pharo-Values/workflows/Unit%20Tests/badge.svg?branch=master)](https://github.com/astares/Pharo-Values/actions?query=workflow%3AUnit%20Tests)
-[![Coverage Status](https://codecov.io/github/astares/Pharo-Values/coverage.svg?branch=master)](https://codecov.io/gh/astares/Pharo-Values/branch/master)
+[![Unit Tests](https://github.com/astares/Pharo-Values/workflows/Unit%20Tests/badge.svg?branch=main)](https://github.com/astares/Pharo-Values/actions?query=workflow%3AUnit%20Tests)
+[![Coverage Status](https://codecov.io/github/astares/Pharo-Values/coverage.svg?branch=main)](https://codecov.io/gh/astares/Pharo-Values/branch/main)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Pharo version](https://img.shields.io/badge/Pharo-7.0-%23aac9ff.svg)](https://pharo.org/download)
