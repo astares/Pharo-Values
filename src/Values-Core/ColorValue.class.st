@@ -65,6 +65,12 @@ ColorValue class >> namedValueNames [
 	^ #( #black #white #red #green #blue #cyan #magenta #yellow )
 ]
 
+{ #category : #'instance creation' }
+ColorValue class >> new [
+
+	^ self basicNew
+]
+
 { #category : #'accessing - defaults' }
 ColorValue class >> red [
 
