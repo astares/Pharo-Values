@@ -7,6 +7,12 @@ Class {
 	#category : #'Values-Core-Formatting'
 }
 
+{ #category : #testing }
+SourceEmitter class >> isAbstract [
+
+	^ self == SourceEmitter 
+]
+
 { #category : #'private - accessing' }
 SourceEmitter >> emitterClassFor: printvalue [
 
