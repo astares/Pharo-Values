@@ -69,3 +69,11 @@ ColorValueTest >> testNamedColors [
 	self assert: ColorValue namedValueNames size equals: 8
 		
 ]
+
+{ #category : #tests }
+ColorValueTest >> testRGBIndex [
+
+	self 
+		assert: black rgbIndex equals: 0;
+		assert: white rgbIndex equals: 2r111111111111111111111111
+]
