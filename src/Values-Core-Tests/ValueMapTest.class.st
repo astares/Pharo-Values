@@ -91,7 +91,7 @@ ValueMapTest >> testEnumeration [
 
 { #category : #'tests - failing' }
 ValueMapTest >> testExampleSource [
-	self assert: ValueMap example asSource = 
+	self assert: ValueMap example asSource equals: 
 '((Valuemap new: 17)
 	add: #title -> ''Valuemap class example with examples of all basic values'';
 	add: #boolean -> true;
