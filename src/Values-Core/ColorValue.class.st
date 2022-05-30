@@ -140,6 +140,18 @@ ColorValue >> magenta [
 	^ 1.0 - self green
 ]
 
+{ #category : #printing }
+ColorValue >> printValueWith: printer [
+	| args |
+	(self class nameOrNilFor: self) ifNotNil: [:symbol |
+		^ LiteralPrintValue string: (printer classNameOf: self) , ' ' , symbol asString ].
+	args := OrderedCollection new.
+	args add: (printer constant: 'fromBytesRed' value: (self red * 255) rounded).
+	args add: (printer constant: 'green' value: (self green * 255) rounded).
+	args add: (printer constant: 'blue' value: (self blue * 255) rounded).
+	^ printer printValue: self arguments: args
+]
+
 { #category : #converting }
 ColorValue >> rgbIndex [
 	"<Integer>
