@@ -39,9 +39,31 @@ Object >> asSourceFor: targetClass [
 ]
 
 { #category : #'*Values-Core' }
+Object >> beImmutable [
+	
+	self beReadOnlyObject.	
+	^ self
+]
+
+{ #category : #'*Values-Core' }
+Object >> beMutable [
+
+	self beWritableObject.	
+	^ self
+]
+
+{ #category : #'*Values-Core' }
 Object >> isEqualValue: anObject [
 
 	^ self = anObject
+]
+
+{ #category : #'*Values-Core' }
+Object class >> namedValueNames [
+	"<Array of: Symbol>
+	names to print for special known values"
+	
+	^#()
 ]
 
 { #category : #'*Values-Core' }

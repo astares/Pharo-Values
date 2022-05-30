@@ -22,3 +22,17 @@ ValueTest >> testIsEqualValue [
 		assert: (Color red isEqualValue: Color red);
 		assert: (ColorValue white isEqualValue: ColorValue white)
 ]
+
+{ #category : #'tests - extensions' }
+ValueTest >> testMutability [
+
+	| a |
+	a := #[6 6 6] copy.
+	self assert: a first equals: 6.
+	a beMutable. 
+	a at: 1 put: 4.
+	
+	self assert: a first equals: 4.
+	a beImmutable. 
+	self should: [ a at: 1 put: 6 ] raise: ModificationForbidden
+]

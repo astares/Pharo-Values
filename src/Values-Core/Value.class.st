@@ -60,3 +60,10 @@ Value >> isNotEmpty [
 
 	^ self isEmpty not
 ]
+
+{ #category : #copying }
+Value >> postCopy [
+
+	super postCopy.
+	self beImmutable
+]
