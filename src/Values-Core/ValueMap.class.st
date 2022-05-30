@@ -119,7 +119,6 @@ ValueMap >> indexOf: aSymbol [
 { #category : #initialization }
 ValueMap >> initialize: n [
 
-	super initialize: n.
 	orderedDictionary := OrderedDictionary new: n
 ]
 
