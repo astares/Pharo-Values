@@ -55,6 +55,8 @@ ColorValueTest >> testNamedColors [
 	self assert: ColorValue black class equals: ColorValue.
 	
 	ColorValue namedValueNames do: [:selector | 
-		self assert: (ColorValue perform: selector) equals: (Color perform: selector) asColorValue ]
+		self assert: (ColorValue perform: selector) equals: (Color perform: selector) asColorValue ].
+	
+	self assert: ColorValue namedValueNames size equals: 8
 		
 ]
