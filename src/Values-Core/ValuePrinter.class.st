@@ -66,7 +66,7 @@ ValuePrinter >> optional: selectorName value: object [
 	^ object ifNotNil: [ 
 		  PrintArgument
 			  name: selectorName
-			  value: (object printvalueWith: self) ]
+			  value: (object printValueWith: self) ]
 ]
 
 { #category : #printing }

@@ -154,7 +154,7 @@ ValueMap >> orderedDictionary [
 ]
 
 { #category : #printing }
-ValueMap >> printvalueWith: printer [
+ValueMap >> printValueWith: printer [
 
 	^ DictionaryPrintValue arguments: (self printArgumentsWith: printer) isOrdered: true
 ]
