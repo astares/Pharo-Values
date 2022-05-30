@@ -89,6 +89,33 @@ ValueMapTest >> testEnumeration [
 	self assert: keys asArray equals: #( #foo #baz )
 ]
 
+{ #category : #'tests - failing' }
+ValueMapTest >> testExampleSource [
+	self assert: ValueMap example asSource = 
+'((Valuemap new: 17)
+	add: #title -> ''Valuemap class example with examples of all basic values'';
+	add: #boolean -> true;
+	add: #character -> $A;
+	add: #symbol -> #mySymbol;
+	add: #string -> ''with umlauts and euro: äöüß€'';
+	add: #schlüssel -> nil;
+	add: #integer -> 42;
+	add: #number -> 3.14;
+	add: #date -> (Date d: 27 m: 3 y: 2022);
+	add: #time -> (Time h: 12 m: 18);
+	add: #timestamp -> (Timestamp d: 27 m: 3 y: 2022 h: 12 m: 18);
+	add: #duration -> (Duration nanoseconds: 300000000000);
+	add: #color -> (ColorValue fromBytesRed: 127 green: 0 blue: 0);
+	add: #knownColor -> ColorValue red;
+	add: #array -> #(#one ''two'' 3);
+	add: #bytearray -> #[1 2 3];
+	add: #valuemap -> (Valuemap
+		with: #test -> true
+		with: #two -> 2
+		with: #none -> nil);
+	yourself)'
+]
+
 { #category : #tests }
 ValueMapTest >> testIndexOf [
 	| od |
