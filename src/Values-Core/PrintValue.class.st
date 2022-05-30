@@ -11,3 +11,75 @@ Class {
 	#superclass : #Value,
 	#category : #'Values-Core-Base'
 }
+
+{ #category : #testing }
+PrintValue class >> isAbstract [ 
+
+	^ self == PrintValue 
+]
+
+{ #category : #accessing }
+PrintValue >> description [
+	"<Text>"
+
+	| emitter |
+	emitter := self textEmitterClass new.
+	self sourceWith: emitter.
+	^emitter stream contents
+]
+
+{ #category : #'private - accessing' }
+PrintValue >> emitterClass [
+	"<SourceEmitter class>"
+
+	^ self isLine
+		  ifTrue: [ LineEmitter ]
+		  ifFalse: [ BlockEmitter ]
+]
+
+{ #category : #testing }
+PrintValue >> isLine [
+
+	^ false
+]
+
+{ #category : #testing }
+PrintValue >> isSimple [
+	"does it have to be printed in brackets?
+	only literals are simple"
+
+	^ false
+]
+
+{ #category : #accessing }
+PrintValue >> sourceFor: outerEmitter [
+	"<String>"
+
+	^self sourceWith: (outerEmitter emitterFor: self)
+]
+
+{ #category : #accessing }
+PrintValue >> sourceWith: emitter [
+	"write yourself with the emitter"
+
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+PrintValue >> sourceWithPrinter: aPrinter [
+	"<String>"
+
+	| emitter |
+	emitter := self emitterClass for: aPrinter.
+	self sourceWith: emitter.
+	^ emitter stream contents
+]
+
+{ #category : #'private - accessing' }
+PrintValue >> textEmitterClass [
+	"<SourceEmitter class>"
+
+	^ self isLine
+		  ifTrue: [ TextLineEmitter ]
+		  ifFalse: [ TextBlockEmitter ]
+]
