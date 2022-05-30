@@ -39,6 +39,12 @@ Object >> asSourceFor: targetClass [
 ]
 
 { #category : #'*Values-Core' }
+Object >> isEqualValue: anObject [
+
+	^ self = anObject
+]
+
+{ #category : #'*Values-Core' }
 Object >> printValueWith: printer [
 
 	^ LiteralPrintValue string: self storeString
