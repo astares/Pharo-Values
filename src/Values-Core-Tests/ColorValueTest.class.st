@@ -72,6 +72,13 @@ ColorValueTest >> testNamedColors [
 		
 ]
 
+{ #category : #'tests - class' }
+ColorValueTest >> testNamesByValues [
+
+	self assert: ColorValue namesByValues size equals: 8.
+	self assert: ColorValue namesByValues values equals: ColorValue namedValueNames 
+]
+
 { #category : #tests }
 ColorValueTest >> testRGBIndex [
 
