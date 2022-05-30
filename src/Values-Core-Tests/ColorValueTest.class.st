@@ -26,6 +26,14 @@ ColorValueTest >> testConversionToByteArray [
 ]
 
 { #category : #tests }
+ColorValueTest >> testConversionToColorValue [
+
+	self 
+		assert: black asColorValue identicalTo: black;
+		assert: white asColorValue identicalTo: white
+]
+
+{ #category : #tests }
 ColorValueTest >> testConversionToGrayValue [
 
 	self 

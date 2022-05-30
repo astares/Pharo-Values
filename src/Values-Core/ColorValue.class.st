@@ -41,6 +41,12 @@ ColorValue >> asByteArray [
 ]
 
 { #category : #converting }
+ColorValue >> asColorValue [
+
+	^ self
+]
+
+{ #category : #converting }
 ColorValue >> asGrayValue [
 	"<Number>
 	between 0.0 (Black) and 1.0 (White) suitable for PDF DeviceGray"
