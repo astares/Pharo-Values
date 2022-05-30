@@ -1,7 +1,8 @@
 # Pharo-Values
 Port of Values to Pharo
 
-## Quick guide
+# Quick Start
+## Installation
 
 To load run
 
@@ -11,3 +12,15 @@ Metacello new
    repository: 'github://astares/Pharo-Values:master/src';
    load
 ```
+
+# Project Infos
+
+## Contributors
+
+Contributors in order of appearance:
+
+- Christian Haider
+- Torsten Bergmann
+
+## LICENSE
+[MIT License](LICENSE)
