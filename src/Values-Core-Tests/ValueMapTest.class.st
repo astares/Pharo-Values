@@ -9,6 +9,7 @@ Class {
 
 { #category : #tests }
 ValueMapTest >> testAdding [
+
 	| od od1 |
 	od := ValueMap new.
 	self assert: od isEmpty.
