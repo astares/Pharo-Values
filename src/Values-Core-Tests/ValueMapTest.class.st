@@ -61,8 +61,8 @@ ValueMapTest >> testComparing [
 ]
 
 { #category : #'tests - failing' }
-ValueMapTest >> testDescribeAndReadBackNew [
-	<skip>
+ValueMapTest >> testDescribeAndReadBackNew [	
+	
 	| inst |
 	inst := ValueMap new.
 	self assert: inst asDescription equals: (Object compiler evaluate: inst asSource) asDescription

@@ -30,3 +30,12 @@ ColorValue class >> red: r green: g blue: b [
 
 	^ self r: r g: g b: b
 ]
+
+{ #category : #converting }
+ColorValue >> asByteArray [
+
+	^ ByteArray
+		with: (self red * 255) truncated
+		with: (self green * 255) truncated
+		with: (self blue * 255) truncated
+]
