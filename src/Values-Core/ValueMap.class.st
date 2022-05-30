@@ -134,6 +134,11 @@ ValueMap >> keysDo: aBlockClosure [
 	^ orderedDictionary keysDo: aBlockClosure 
 ]
 
+{ #category : #removing }
+ValueMap >> remove: anObject ifAbsent: aBlock [
+	self shouldNotImplement
+]
+
 { #category : #accessing }
 ValueMap >> removeKey: aKey [ 
 
