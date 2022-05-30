@@ -75,7 +75,7 @@ ValuePrinter >> printValue: aValue arguments: arguments [
 	aValue class new = aValue ifTrue: [ 
 		^ ValuePrintValue classname: (self classnameOf: aValue) ].
 	^ ValuePrintValue
-		  classname: (self classnameOf: aValue)
+		  className: (self classnameOf: aValue)
 		  arguments: (arguments select: [ :arg | arg notNil ])
 ]
 
