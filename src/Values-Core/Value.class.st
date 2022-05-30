@@ -23,6 +23,14 @@ Value class >> isAbstract [
 	^ self == Value
 ]
 
+{ #category : #specification }
+Value class >> localSpecification [
+	"specification of the constants with pragmas.
+	Only for the instvars defined in this class - access the full specification with #specification"
+
+	^self subclassResponsibility
+]
+
 { #category : #'named values' }
 Value class >> namedValuesAt: aClass [
 	"<Dictionary key: Value value: Symbol>

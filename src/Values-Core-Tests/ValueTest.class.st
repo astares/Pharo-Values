@@ -4,6 +4,12 @@ Class {
 	#category : #'Values-Core-Tests-Base'
 }
 
+{ #category : #'tests - class' }
+ValueTest >> testIsAbstract [ 
+
+	self assert: Value isAbstract 
+]
+
 { #category : #'tests - extensions' }
 ValueTest >> testIsEmpty [
 
