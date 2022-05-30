@@ -161,6 +161,16 @@ ValueMapTest >> testKeyedAccess [
 ]
 
 { #category : #tests }
+ValueMapTest >> testReadBackAllTestInstances [
+
+	(ValueMap class organization listAtCategoryNamed: (ValueMap class whichCategoryIncludesSelector: #example)) do: [:sel |
+		| inst readInst |
+		inst := ValueMap perform: sel.
+		self shouldnt: [readInst := Object compiler evaluate: inst asSource] raise: Error.
+		self assert: inst asSource equals: readInst asSource]
+]
+
+{ #category : #tests }
 ValueMapTest >> testRemoving [
 
 	| map |
