@@ -56,6 +56,13 @@ Value class >> namedValuesRegistry [
 	^ NamedValuesRegistry ifNil: [ NamedValuesRegistry := Dictionary new ]
 ]
 
+{ #category : #initialization }
+Value class >> obsolete [
+
+	self allInstancesDo: #beMutable.
+	super obsolete
+]
+
 { #category : #marshalling }
 Value class >> passMode [
 	"for OpenTalk StSt (Smalltalk to Smalltalk)"
@@ -63,11 +70,41 @@ Value class >> passMode [
 	^ #value
 ]
 
+{ #category : #initialization }
+Value class >> primeRuntime [
+	"reset and load all class variables to fill the caches to avoid lazy initialization at runtime.
+	This should be executed when deploying after all application fonts and extensions are loaded"
+	<script>
+
+	self resetNamedValuesRegistry.
+	Object namesByValues
+]
+
 { #category : #'class initialization' }
 Value class >> resetNamedValuesRegistry [
 	<script>
 
 	NamedValuesRegistry := nil
+]
+
+{ #category : #pragmas }
+Value class >> specificationPragmas [
+	<pragmas: #class>
+	^#(
+		#constant:class:
+		#constant:class:comment:
+		
+		#optional:class:default:
+		#optional:class:default:comment:
+		
+		#sequence:
+		#sequence:comment:
+		"#sequence:elements:comment:"
+		
+		#map:
+		#map:comment:
+		"#map:keys:values:comment:"
+	)
 ]
 
 { #category : #comparing }
