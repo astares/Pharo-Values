@@ -20,7 +20,8 @@ BaselineOfValues >> baseline: spec [
 		"Group"	
 		spec
 			group: 'Core' with: #('Values-Core' );
-			group: 'Tests' with: #('Values-Core-Tests').
+			group: 'Tests' with: #('Values-Core-Tests');
+			group: 'CI' with: #('Tests').
 	
 		"Virtual groups"
 		spec
