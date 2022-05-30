@@ -56,6 +56,13 @@ Value class >> namedValuesRegistry [
 	^ NamedValuesRegistry ifNil: [ NamedValuesRegistry := Dictionary new ]
 ]
 
+{ #category : #marshalling }
+Value class >> passMode [
+	"for OpenTalk StSt (Smalltalk to Smalltalk)"
+
+	^ #value
+]
+
 { #category : #'class initialization' }
 Value class >> resetNamedValuesRegistry [
 	<script>
@@ -106,4 +113,16 @@ Value >> postCopy [
 
 	super postCopy.
 	self beImmutable
+]
+
+{ #category : #printing }
+Value >> printOn: stream [
+
+	stream nextPutAll: self asSource
+]
+
+{ #category : #printing }
+Value >> printValueWith: printer [
+	
+	^ printer printValue: self arguments: #()
 ]
