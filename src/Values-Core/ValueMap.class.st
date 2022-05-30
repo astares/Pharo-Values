@@ -141,10 +141,22 @@ ValueMap >> keysDo: aBlockClosure [
 	^ orderedDictionary keysDo: aBlockClosure 
 ]
 
+{ #category : #printing }
+ValueMap >> keysForPrinting [
+
+	^ self keys
+]
+
 { #category : #'private - accessing' }
 ValueMap >> orderedDictionary [
 
 	^ orderedDictionary ifNil: [ orderedDictionary := OrderedDictionary new ]
+]
+
+{ #category : #printing }
+ValueMap >> printvalueWith: printer [
+
+	^ DictionaryPrintValue arguments: (self printArgumentsWith: printer) isOrdered: true
 ]
 
 { #category : #removing }

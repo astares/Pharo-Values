@@ -7,3 +7,10 @@ Class {
 	#superclass : #PrintArgument,
 	#category : #'Values-Core-Base'
 }
+
+{ #category : #specification }
+DictionaryPrintArgument class >> localSpecification [
+
+	<constant: #name class: #PrintValue>
+	<constant: #value class: #PrintValue>
+]

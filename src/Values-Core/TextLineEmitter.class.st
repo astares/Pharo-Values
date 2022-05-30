@@ -6,3 +6,9 @@ Class {
 	#superclass : #TextEmitter,
 	#category : #'Values-Core-Formatting'
 }
+
+{ #category : #writing }
+TextLineEmitter >> emitSeparator [
+
+	self stream space
+]
