@@ -6,3 +6,16 @@ Class {
 	#superclass : #Emitter,
 	#category : #'Values-Core-Formatting'
 }
+
+{ #category : #'private - accessing' }
+SourceEmitter >> emitterClassFor: printvalue [
+
+	^ printvalue isLine
+		  ifTrue: [ LineEmitter ]
+		  ifFalse: [ BlockEmitter ]
+]
+
+{ #category : #'private - accessing' }
+SourceEmitter >> streamClass [
+	^WriteStream
+]
