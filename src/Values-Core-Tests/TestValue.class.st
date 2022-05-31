@@ -172,7 +172,7 @@ TestValue >> passInstVars [
 ]
 
 { #category : #printing }
-TestValue >> printvalueWith: printer [
+TestValue >> printValueWith: printer [
 
 	| args |
 	args := OrderedCollection new.

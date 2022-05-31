@@ -46,11 +46,11 @@ ValuePrinterTest >> testArray [
 				 with: (Date d: 7 m: 7 y: 2007)
 				 with: ColorValue red) asSource
 		equals: '(Array
-	with: (Testvalue
+	with: (TestValue
 		constant: #constantSymbol
 		optional: #optionalSymbol
 		array: #(1 #a $x ''name'')
-		dictionary: (Valuemap
+		dictionary: (ValueMap
 			with: 1 -> #symbol
 			with: #key -> ''string''))
 	with: (Date d: 7 m: 7 y: 2007)
@@ -134,7 +134,7 @@ ValuePrinterTest >> testDictionarySource [
 		with: #key -> ''string''))'.
 	self
 		assert: (TestValue constant: #Haider) asSource
-		equals: '(Testvalue constant: #Haider)'
+		equals: '(TestValue constant: #Haider)'
 ]
 
 { #category : #tests }
@@ -144,7 +144,7 @@ ValuePrinterTest >> testDictionaryWithValues [
 	dict := ValueMap
 		        with: 1 -> TestValue example
 		        with: TestValue example -> $x.
-	self assert: dict asSource equals: '(Valuemap
+	self assert: dict asSource equals: '(ValueMap
 	with: 1 -> (TestValue
 		constant: #constantSymbol
 		optional: #optionalSymbol
@@ -226,7 +226,7 @@ ValuePrinterTest >> testOptionalConstantSource [
 	constant: #constantSymbol
 	optional: #optionalSymbol
 	array: #(1 #a $x ''name'')
-	dictionary: (Valuemap
+	dictionary: (ValueMap
 		with: 1 -> #symbol
 		with: #key -> ''string''))'.
 	self
@@ -235,13 +235,13 @@ ValuePrinterTest >> testOptionalConstantSource [
 				 optional: #optionalSymbol
 				 array: #( 1 #a $x 'name' )) asSource
 		equals:
-		'(Testvalue constant: #constantSymbol optional: #optionalSymbol array: #(1 #a $x ''name''))'.
+		'(TestValue constant: #constantSymbol optional: #optionalSymbol array: #(1 #a $x ''name''))'.
 	self
 		assert:
 			(TestValue constant: #constantSymbol optional: #optionalSymbol)
 				asSource
 		equals:
-		'(Testvalue constant: #constantSymbol optional: #optionalSymbol)'.
+		'(TestValue constant: #constantSymbol optional: #optionalSymbol)'.
 	self
 		assert: (TestValue constant: #constantSymbol) asSource
 		equals: '(TestValue constant: #constantSymbol)'
