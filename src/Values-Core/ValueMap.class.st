@@ -44,7 +44,7 @@ ValueMap class >> example [
 	map at: #bytearray put: #[1 2 3].
 	map
 		at: #valuemap
-		put: (self
+		put:  (ValueMap
 			with: #test -> true
 			with: #two -> 2
 			with: #none -> nil).
