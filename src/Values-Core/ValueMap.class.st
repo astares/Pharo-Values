@@ -80,7 +80,7 @@ ValueMap >> addAll: aKeyedCollection [
 
 	aKeyedCollection == self ifFalse: [ 
 		aKeyedCollection keysAndValuesDo: [ :key :value | 
-			self orderedDictionary add: value ]].
+			self orderedDictionary add: key -> value ]].
 	^ aKeyedCollection
 ]
 
