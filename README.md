@@ -29,8 +29,8 @@ Metacello new
 
 Contributors in order of appearance:
 
-- Christian Haider
-- Torsten Bergmann
+- [Christian Haider](https://github.com/ChristianHaider)
+- [Torsten Bergmann](https://github.com/astares)
 
 ## LICENSE
 [MIT License](LICENSE)
