@@ -66,16 +66,22 @@ ValueMap >> = otherValueMap [
 				  (self atIndex: i) = (otherValueMap atIndex: i) ] ] ]
 ]
 
-{ #category : #accessing }
+{ #category : #adding }
 ValueMap >> add: anAssociation [ 
 
 	self orderedDictionary add: anAssociation 
 ]
 
-{ #category : #accessing }
+{ #category : #adding }
 ValueMap >> addAll: aKeyedCollection [
+	"Add all of the keys and values from aKeyedCollection to the value map.
+	If the key already exists then the value is overwritten.
+	"
 
-	^ self orderedDictionary addAll: aKeyedCollection
+	aKeyedCollection == self ifFalse: [ 
+		aKeyedCollection keysAndValuesDo: [ :key :value | 
+			self orderedDictionary add: value ]].
+	^ aKeyedCollection
 ]
 
 { #category : #accessing }
@@ -132,6 +138,26 @@ ValueMap >> isEmpty [
 ValueMap >> keys [
 
 	^ self orderedDictionary keys
+]
+
+{ #category : #iterating }
+ValueMap >> keysAndValuesDo: aBlock [
+
+	"
+	Evaluate aBlock for each of the receiver's keys and values. The block must accept two 
+	inputs, the first being the key and the second being the value. See keysDo: or valuesDo: 
+	if you only need to evaluate one or the other. Also see associationsDo: for a similar 
+	selector where the block accepts a single agrument.
+	
+	```
+	d := Dictionary withAll: #(4 5 9 6 76).
+	a := OrderedCollection new.
+	d keysAndValuesDo: [ :k :v | a add: v. a add: k ]. ""an OrderedCollection(75 5 8 3 3 1 5 4 4 2)""
+	```
+	"
+
+	^ self associationsDo: [ :assoc | 
+		  aBlock value: assoc key value: assoc value ]
 ]
 
 { #category : #iterating }
