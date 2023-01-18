@@ -19,7 +19,7 @@ ColorValueTest >> setUp [
 { #category : #tests }
 ColorValueTest >> testAccessing [
 
-	self 
+	self
 		assert: ColorValue yellow yellow equals: 1.0;
 		assert: ColorValue cyan cyan equals: 1.0;
 		assert: ColorValue magenta magenta equals: 1.0
@@ -28,16 +28,15 @@ ColorValueTest >> testAccessing [
 { #category : #tests }
 ColorValueTest >> testConversionToByteArray [
 
-	self 
+	self
 		assert: black asByteArray equals: #[ 0 0 0 ];
 		assert: white asByteArray equals: #[ 255 255 255 ]
-		
 ]
 
 { #category : #tests }
 ColorValueTest >> testConversionToColorValue [
 
-	self 
+	self
 		assert: black asColorValue identicalTo: black;
 		assert: white asColorValue identicalTo: white
 ]
@@ -45,15 +44,15 @@ ColorValueTest >> testConversionToColorValue [
 { #category : #tests }
 ColorValueTest >> testConversionToColorValueFromColor [
 
-	self 
+	self
 		assert: black asColorValue equals: (ColorValue red: 0 green: 0 blue: 0);
-		assert: white asColorValue equals: (ColorValue red: 1 green: 1 blue: 1) 
+		assert: white asColorValue equals: (ColorValue red: 1 green: 1 blue: 1)
 ]
 
 { #category : #tests }
 ColorValueTest >> testConversionToGrayValue [
 
-	self 
+	self
 		assert: black asGrayValue equals: 0.0;
 		assert: white asGrayValue equals: 1.0
 ]
@@ -62,27 +61,26 @@ ColorValueTest >> testConversionToGrayValue [
 ColorValueTest >> testNamedColors [
 
 	self assert: ColorValue black class equals: ColorValue.
-	
-	ColorValue namedValueNames do: [:selector | 
+
+	ColorValue namedValueNames do: [:selector |
 		self assert: (ColorValue perform: selector) equals: (Color perform: selector) asColorValue ].
-	
-	self 
+
+	self
 		assert: ColorValue namedValueNames size equals: 8;
 		assert: Object namedValueNames size equals: 0
-		
 ]
 
 { #category : #'tests - class' }
 ColorValueTest >> testNamesByValues [
 
 	self assert: ColorValue namesByValues size equals: 8.
-	self assert: ColorValue namesByValues values equals: ColorValue namedValueNames 
+	self assert: ColorValue namesByValues values equals: ColorValue namedValueNames
 ]
 
 { #category : #tests }
 ColorValueTest >> testRGBIndex [
 
-	self 
+	self
 		assert: black rgbIndex equals: 0;
 		assert: white rgbIndex equals: 2r111111111111111111111111
 ]

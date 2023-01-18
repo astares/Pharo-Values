@@ -63,7 +63,7 @@ ValuePrinter >> initializeTarget: targetClass [
 ValuePrinter >> optional: selectorName value: object [
 	"<PrintArgument | nil>"
 
-	^ object ifNotNil: [ 
+	^ object ifNotNil: [
 		  PrintArgument
 			  name: selectorName
 			  value: (object printValueWith: self) ]
@@ -72,7 +72,7 @@ ValuePrinter >> optional: selectorName value: object [
 { #category : #printing }
 ValuePrinter >> printValue: aValue arguments: arguments [
 
-	aValue class new = aValue ifTrue: [ 
+	aValue class new = aValue ifTrue: [
 		^ ValuePrintValue classname: (self classNameOf: aValue) ].
 	^ ValuePrintValue
 		  className: (self classNameOf: aValue)

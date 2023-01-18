@@ -54,22 +54,22 @@ ValueMap class >> example [
 { #category : #'instance creation' }
 ValueMap class >> new: sizeRequested [
 
-	^ self new initialize: sizeRequested 
+	^ self new initialize: sizeRequested
 ]
 
-{ #category : #accessing }
+{ #category : #comparing }
 ValueMap >> = otherValueMap [
 
-	^ self class = otherValueMap class and: [ 
-		  self size = otherValueMap size and: [ 
-			  (1 to: self size) allSatisfy: [ :i | 
+	^ self class = otherValueMap class and: [
+		  self size = otherValueMap size and: [
+			  (1 to: self size) allSatisfy: [ :i |
 				  (self atIndex: i) = (otherValueMap atIndex: i) ] ] ]
 ]
 
 { #category : #adding }
-ValueMap >> add: anAssociation [ 
+ValueMap >> add: anAssociation [
 
-	self orderedDictionary add: anAssociation 
+	self orderedDictionary add: anAssociation
 ]
 
 { #category : #adding }
@@ -78,14 +78,14 @@ ValueMap >> addAll: aKeyedCollection [
 	If the key already exists then the value is overwritten.
 	"
 
-	aKeyedCollection == self ifFalse: [ 
-		aKeyedCollection keysAndValuesDo: [ :key :value | 
+	aKeyedCollection == self ifFalse: [
+		aKeyedCollection keysAndValuesDo: [ :key :value |
 			self orderedDictionary add: key -> value ]].
 	^ aKeyedCollection
 ]
 
 { #category : #accessing }
-ValueMap >> at: key [ 
+ValueMap >> at: key [
 	"Answer the value associated with the key."
 
 	^ self orderedDictionary at: key
@@ -98,28 +98,28 @@ ValueMap >> at: aKey ifAbsent: aBlock [
 ]
 
 { #category : #accessing }
-ValueMap >> at: key put: anObject [ 
+ValueMap >> at: key put: anObject [
 
-	^ self orderedDictionary at: key put: anObject 
+	^ self orderedDictionary at: key put: anObject
 ]
 
 { #category : #accessing }
-ValueMap >> atIndex: anInteger [ 
+ValueMap >> atIndex: anInteger [
 
 	^ self orderedDictionary associationAt: (orderedDictionary keys at: anInteger)
 ]
 
 { #category : #enumerating }
-ValueMap >> do: aBlock [ 
+ValueMap >> do: aBlock [
 	"Evaluate aBlock with each of the receiver's elements as the argument."
 
 	^ self orderedDictionary associations do: aBlock
 ]
 
 { #category : #accessing }
-ValueMap >> indexOf: aSymbol [ 
- 
-	^ self orderedDictionary indexOfKey: aSymbol 
+ValueMap >> indexOf: aSymbol [
+
+	^ self orderedDictionary indexOfKey: aSymbol
 ]
 
 { #category : #initialization }
@@ -131,7 +131,7 @@ ValueMap >> initialize: n [
 { #category : #testing }
 ValueMap >> isEmpty [
 
-	^ self orderedDictionary isEmpty 
+	^ self orderedDictionary isEmpty
 ]
 
 { #category : #accessing }
@@ -144,11 +144,11 @@ ValueMap >> keys [
 ValueMap >> keysAndValuesDo: aBlock [
 
 	"
-	Evaluate aBlock for each of the receiver's keys and values. The block must accept two 
-	inputs, the first being the key and the second being the value. See keysDo: or valuesDo: 
-	if you only need to evaluate one or the other. Also see associationsDo: for a similar 
+	Evaluate aBlock for each of the receiver's keys and values. The block must accept two
+	inputs, the first being the key and the second being the value. See keysDo: or valuesDo:
+	if you only need to evaluate one or the other. Also see associationsDo: for a similar
 	selector where the block accepts a single agrument.
-	
+
 	```
 	d := Dictionary withAll: #(4 5 9 6 76).
 	a := OrderedCollection new.
@@ -156,14 +156,14 @@ ValueMap >> keysAndValuesDo: aBlock [
 	```
 	"
 
-	^ self associationsDo: [ :assoc | 
+	^ self associationsDo: [ :assoc |
 		  aBlock value: assoc key value: assoc value ]
 ]
 
 { #category : #iterating }
-ValueMap >> keysDo: aBlockClosure [ 
-	
-	^ orderedDictionary keysDo: aBlockClosure 
+ValueMap >> keysDo: aBlockClosure [
+
+	^ orderedDictionary keysDo: aBlockClosure
 ]
 
 { #category : #printing }
@@ -181,7 +181,7 @@ ValueMap >> orderedDictionary [
 { #category : #printing }
 ValueMap >> printArgumentsWith: aPrinter [
 
-	^ self keysForPrinting collect: [ :key | 
+	^ self keysForPrinting collect: [ :key |
 		  DictionaryPrintArgument
 			  name: (key printValueWith: aPrinter)
 			  value: ((self at: key) printValueWith: aPrinter) ]
@@ -199,16 +199,15 @@ ValueMap >> remove: anObject ifAbsent: aBlock [
 ]
 
 { #category : #accessing }
-ValueMap >> removeKey: aKey [ 
+ValueMap >> removeKey: aKey [
 
 	^ self orderedDictionary removeKey: aKey
 ]
 
 { #category : #accessing }
-ValueMap >> removeKey: aKey ifAbsent: aBlock [ 
-	
-	^ self orderedDictionary removeKey: aKey ifAbsent: aBlock 
-	
+ValueMap >> removeKey: aKey ifAbsent: aBlock [
+
+	^ self orderedDictionary removeKey: aKey ifAbsent: aBlock
 ]
 
 { #category : #accessing }

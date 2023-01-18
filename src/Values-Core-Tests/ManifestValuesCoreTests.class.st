@@ -10,6 +10,16 @@ Class {
 }
 
 { #category : #'code-critics' }
+ManifestValuesCoreTests class >> ruleCollectionProtocolRuleV1FalsePositive [
+	^ #(#(#(#RGMethodDefinition #(#ValueMapTest #testAddingWithGrowth #false)) #'2023-01-18T23:18:06.47711+01:00') )
+]
+
+{ #category : #'code-critics' }
+ManifestValuesCoreTests class >> ruleLiteralArrayContainsSuspiciousTrueFalseOrNilRuleV1FalsePositive [
+	^ #(#(#(#RGMetaclassDefinition #(#'ManifestValuesCoreTests class' #ManifestValuesCoreTests)) #'2023-01-18T23:20:41.978968+01:00') )
+]
+
+{ #category : #'code-critics' }
 ManifestValuesCoreTests class >> ruleReTemporaryNeitherReadNorWrittenRuleV1FalsePositive [
 	^ #(#(#(#RGMethodDefinition #(#TestValue #foo #false)) #'2022-05-30T11:47:26.553+02:00') )
 ]

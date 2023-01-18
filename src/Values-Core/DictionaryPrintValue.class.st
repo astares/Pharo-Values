@@ -52,9 +52,9 @@ DictionaryPrintValue >> arguments [
 { #category : #initialization }
 DictionaryPrintValue >> initializeArguments: argumentsArray isOrdered: isOrderedBoolean [
 
-	(argumentsArray notNil and: [ argumentsArray notEmpty ]) ifTrue: [ 
+	(argumentsArray notNil and: [ argumentsArray notEmpty ]) ifTrue: [
 		arguments := (Array withAll: argumentsArray) beImmutable ].
-	(isOrderedBoolean notNil and: [ self isOrdered ~= isOrderedBoolean ]) 
+	(isOrderedBoolean notNil and: [ self isOrdered ~= isOrderedBoolean ])
 		ifTrue: [ isOrdered := isOrderedBoolean ].
 	self beImmutable
 ]

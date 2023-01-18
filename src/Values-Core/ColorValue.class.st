@@ -33,7 +33,7 @@ ColorValue class >> fromByte: anInteger [
 
 { #category : #'instance creation' }
 ColorValue class >> fromBytes: threeBytes [
-	
+
 	^ self fromBytesRed: threeBytes first green: (threeBytes at: 2) blue: threeBytes last
 ]
 
@@ -61,7 +61,7 @@ ColorValue class >> namedValueNames [
 	The colors are all variations of min and max of the 3 components"
 
 	<script: 'self namedValueNames inspect'>
-	
+
 	^ #( #black #white #red #green #blue #cyan #magenta #yellow )
 ]
 

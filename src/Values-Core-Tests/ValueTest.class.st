@@ -11,9 +11,9 @@ ValueTest >> testAsNanoseconds [
 ]
 
 { #category : #'tests - class' }
-ValueTest >> testIsAbstract [ 
+ValueTest >> testIsAbstract [
 
-	self assert: Value isAbstract 
+	self assert: Value isAbstract
 ]
 
 { #category : #'tests - extensions' }
@@ -28,7 +28,7 @@ ValueTest >> testIsEmpty [
 ValueTest >> testIsEqualValue [
 
 	self
-		assert: (1 isEqualValue: 1); 
+		assert: (1 isEqualValue: 1);
 		assert: (1.0 isEqualValue: 1.0);
 		assert: (Boolean isEqualValue: Boolean);
 		assert: (Color red isEqualValue: Color red);
@@ -41,10 +41,10 @@ ValueTest >> testMutability [
 	| a |
 	a := #[6 6 6] copy.
 	self assert: a first equals: 6.
-	a beMutable. 
+	a beMutable.
 	a at: 1 put: 4.
-	
+
 	self assert: a first equals: 4.
-	a beImmutable. 
+	a beImmutable.
 	self should: [ a at: 1 put: 6 ] raise: ModificationForbidden
 ]

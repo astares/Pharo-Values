@@ -27,7 +27,7 @@ ValueMapTest >> testAdding [
 	od addAll: od1.
 	self assert: od size equals: 2.
 	self assert: (od at: #foo) equals: 'baz'.
-	self assert: (od at: #baz) equals: 'yyy'.
+	self assert: (od at: #baz) equals: 'yyy'
 ]
 
 { #category : #tests }
@@ -36,14 +36,14 @@ ValueMapTest >> testAddingWithGrowth [
 
 	| letters m1 m2 |
 	letters := #(#a #b #c #d #e #f #g #h #i #j #k #l #m #n #o #p #q #r #s #t #u #v #w #x #y #z).
-	
+
 	m1 := ValueMap new.
-	self shouldnt: [ letters do: [:symbol | m1 add: symbol -> symbol asString ]] raise: Error.
-	self assert: m1 keys asArray = #(#a #b #c #d #e #f #g #h #i #j #k #l #m #n #o #p #q #r #s #t #u #v #w #x #y #z).
-	
+	letters do: [:symbol | m1 add: symbol -> symbol asString ].
+	self assert: m1 keys asArray equals: #(#a #b #c #d #e #f #g #h #i #j #k #l #m #n #o #p #q #r #s #t #u #v #w #x #y #z).
+
 	m2 := ValueMap new.
-	self shouldnt: [ letters do: [:symbol | m2 at: symbol put: symbol asString ]] raise: Error.
-	self assert: m2 keys asArray = #(#a #b #c #d #e #f #g #h #i #j #k #l #m #n #o #p #q #r #s #t #u #v #w #x #y #z)
+	letters do: [:symbol | m2 at: symbol put: symbol asString ].
+	self assert: m2 keys asArray equals: #(#a #b #c #d #e #f #g #h #i #j #k #l #m #n #o #p #q #r #s #t #u #v #w #x #y #z)
 ]
 
 { #category : #tests }
@@ -62,8 +62,8 @@ ValueMapTest >> testComparing [
 ]
 
 { #category : #'tests - failing' }
-ValueMapTest >> testDescribeAndReadBackNew [	
-	
+ValueMapTest >> testDescribeAndReadBackNew [
+
 	| inst |
 	inst := ValueMap new.
 	self assert: inst asDescription equals: (Object compiler evaluate: inst asSource) asDescription
@@ -76,15 +76,15 @@ ValueMapTest >> testEnumeration [
 	map := ValueMap new.
 	map add: #foo -> 'bar'.
 	map at: #baz put: 'xxx'.
-	
-	map associationsDo: [ :assoc | 
+
+	map associationsDo: [ :assoc |
 		self assert: (assoc isKindOf: Association).
 		self assert: assoc key isSymbol.
 		self assert: assoc value isString ].
-	
+
 	self assert: map keys asArray equals: #( #foo #baz ).
 	self assert: map values asArray equals: #( 'bar' 'xxx' ).
-	
+
 	keys := OrderedCollection new.
 	map keysDo: [ :k | keys add: k ].
 	self assert: keys asArray equals: #( #foo #baz )
@@ -92,7 +92,7 @@ ValueMapTest >> testEnumeration [
 
 { #category : #'tests - failing' }
 ValueMapTest >> testExampleSource [
-	self assert: ValueMap example asSource equals: 
+	self assert: ValueMap example asSource equals:
 '((ValueMap new: 17)
 	add: #title -> ''ValueMap class example with examples of all basic values'';
 	add: #boolean -> true;
@@ -129,7 +129,7 @@ ValueMapTest >> testIndexOf [
 	self assert: (od indexOf: #baz) isZero.
 	od at: #baz put: 'xxx'.
 	self assert: od size equals: 2.
-	self assert: (od indexOf: #baz) equals: 2.
+	self assert: (od indexOf: #baz) equals: 2
 ]
 
 { #category : #tests }

@@ -10,7 +10,7 @@ Class {
 { #category : #testing }
 SourceEmitter class >> isAbstract [
 
-	^ self == SourceEmitter 
+	^ self == SourceEmitter
 ]
 
 { #category : #'private - accessing' }

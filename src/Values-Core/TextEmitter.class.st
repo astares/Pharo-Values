@@ -8,7 +8,7 @@ Class {
 }
 
 { #category : #testing }
-TextEmitter class >> isAbstract [ 
+TextEmitter class >> isAbstract [
 
 	^ self == TextEmitter
 ]
@@ -40,7 +40,7 @@ TextEmitter >> emitDictionarySourceFor: aDictionaryPrintValue [
 { #category : #writing }
 TextEmitter >> emitSmallCollection: aSequenceableCollection [
 
-	aSequenceableCollection do: [ :value | 
+	aSequenceableCollection do: [ :value |
 		self emitSeparator.
 		value sourceFor: self ]
 ]
@@ -48,7 +48,7 @@ TextEmitter >> emitSmallCollection: aSequenceableCollection [
 { #category : #writing }
 TextEmitter >> emitSmallDictionary: aDictionaryPrintvalue [
 
-	aDictionaryPrintvalue arguments do: [ :argument | 
+	aDictionaryPrintvalue arguments do: [ :argument |
 		self emitSeparator.
 		argument name sourceFor: self.
 		self emit: ': '.

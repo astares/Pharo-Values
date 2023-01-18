@@ -99,14 +99,14 @@ TestValue class >> constant: constantSymbol optional: optionalSymbol dictionary:
 		initializeConstant: constantSymbol
 		optional: optionalSymbol
 		array: nil
-		dictionary: dictionaryDictionary.		
+		dictionary: dictionaryDictionary.
 	^ inst
 ]
 
 { #category : #'test instances' }
 TestValue class >> example [
 	<sampleInstance>
-	
+
 	^ TestValue
 		  constant: #constantSymbol
 		  optional: #optionalSymbol
@@ -147,12 +147,12 @@ TestValue >> dictionary [
 TestValue >> initializeConstant: constantSymbol optional: optionalSymbol array: arrayArray dictionary: dictionaryDictionary [
 
 	constant := constantSymbol.
-	(optionalSymbol notNil and: [ self optional ~= optionalSymbol ]) 
+	(optionalSymbol notNil and: [ self optional ~= optionalSymbol ])
 		ifTrue: [ optional := optionalSymbol ].
-	(arrayArray notNil and: [ arrayArray notEmpty ]) ifTrue: [ 
+	(arrayArray notNil and: [ arrayArray notEmpty ]) ifTrue: [
 		array := (Array withAll: arrayArray) beImmutable ].
-	(dictionaryDictionary notNil and: [ dictionaryDictionary notEmpty ]) 
-		ifTrue: [ 
+	(dictionaryDictionary notNil and: [ dictionaryDictionary notEmpty ])
+		ifTrue: [
 		dictionary := (ValueMap withAll: dictionaryDictionary) beImmutable ].
 	self beImmutable
 ]

@@ -27,7 +27,7 @@ Timestamp class >> d: dayInteger m: monthInteger y: yearInteger h: hoursInteger 
 
 { #category : #'instance creation' }
 Timestamp class >> d: dayInteger m: monthInteger y: yearInteger h: hoursInteger m: minutesInteger s: secondsInteger [
-	
+
 	^ self
 		year: yearInteger
 		month: monthInteger

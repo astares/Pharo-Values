@@ -11,7 +11,7 @@ Dictionary >> keysForPrinting [
 { #category : #'*Values-Core' }
 Dictionary >> printArgumentsWith: aPrinter [
 
-	^ self keysForPrinting collect: [ :key | 
+	^ self keysForPrinting collect: [ :key |
 		  DictionaryPrintArgument
 			  name: (key printValueWith: aPrinter)
 			  value: ((self at: key) printValueWith: aPrinter) ]

@@ -43,8 +43,8 @@ ArrayPrintValue >> initializeArguments: argumentsArray [
 { #category : #testing }
 ArrayPrintValue >> isLine [
 
-	^ self arguments size = 1 or: [ 
-		  self arguments size < 5 and: [ 
+	^ self arguments size = 1 or: [
+		  self arguments size < 5 and: [
 			  self arguments allSatisfy: [ :arg | arg isSimple ] ] ]
 ]
 

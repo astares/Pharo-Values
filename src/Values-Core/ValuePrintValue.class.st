@@ -41,7 +41,7 @@ ValuePrintValue class >> localSpecification [
 ValuePrintValue >> arguments [
 	"<Array>"
 
-	^ arguments ifNil: [ #() ] 
+	^ arguments ifNil: [ #() ]
 ]
 
 { #category : #accessing }
@@ -64,9 +64,9 @@ ValuePrintValue >> initializeClassname: classnameString arguments: argumentsArra
 { #category : #testing }
 ValuePrintValue >> isLine [
 
-	self arguments size = 1 ifTrue: [ 
+	self arguments size = 1 ifTrue: [
 		^ self arguments first value isLine ].
-	^ self arguments size < 5 and: [ 
+	^ self arguments size < 5 and: [
 		  self arguments allSatisfy: [ :arg | arg isSimple ] ]
 ]
 
@@ -83,9 +83,9 @@ ValuePrintValue >> printValueWith: printer [
 ValuePrintValue >> sourceWith: emitter [
 
 	self arguments isEmpty ifTrue: [ ^ emitter emitEmpty: self ].
-	emitter inBracketsDo: [ 
+	emitter inBracketsDo: [
 		emitter emitClass: self classname.
-		self arguments do: [ :arg | 
+		self arguments do: [ :arg |
 			emitter emitSeparator.
 			emitter emitArgument: arg ] ]
 ]

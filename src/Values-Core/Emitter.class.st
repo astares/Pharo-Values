@@ -125,7 +125,7 @@ Emitter >> emitSeparator [
 Emitter >> emitSmallCollection: aSequenceableCollection [
 
 	self emit: (Array nameRelativeTo: self printer target).
-	aSequenceableCollection do: [ :value | 
+	aSequenceableCollection do: [ :value |
 		self emitSeparator.
 		self emit: 'with: '.
 		value sourceFor: self ]

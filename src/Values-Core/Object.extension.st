@@ -40,15 +40,15 @@ Object >> asSourceFor: targetClass [
 
 { #category : #'*Values-Core' }
 Object >> beImmutable [
-	
-	self beReadOnlyObject.	
+
+	self beReadOnlyObject.
 	^ self
 ]
 
 { #category : #'*Values-Core' }
 Object >> beMutable [
 
-	self beWritableObject.	
+	self beWritableObject.
 	^ self
 ]
 
@@ -69,7 +69,7 @@ Object class >> nameOrNilFor: aValue [
 Object class >> namedValueNames [
 	"<Array of: Symbol>
 	names to print for special known values"
-	
+
 	^#()
 ]
 

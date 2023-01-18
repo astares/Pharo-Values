@@ -13,9 +13,9 @@ Class {
 }
 
 { #category : #testing }
-PrintValue class >> isAbstract [ 
+PrintValue class >> isAbstract [
 
-	^ self == PrintValue 
+	^ self == PrintValue
 ]
 
 { #category : #accessing }

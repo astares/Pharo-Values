@@ -18,7 +18,7 @@ Class {
 }
 
 { #category : #testing }
-Value class >> isAbstract [ 
+Value class >> isAbstract [
 
 	^ self == Value
 ]
@@ -52,7 +52,7 @@ Value class >> namedValuesRegistry [
 	"<Dictionary key: Class value: (Dictionary key: Value value: Symbol)>
 	the named instances of classes.
 	This is a light weight implementation to hold all named instances of all classes, instead of storing them with the class"
-	
+
 	^ NamedValuesRegistry ifNil: [ NamedValuesRegistry := Dictionary new ]
 ]
 
@@ -93,14 +93,14 @@ Value class >> specificationPragmas [
 	^#(
 		#constant:class:
 		#constant:class:comment:
-		
+
 		#optional:class:default:
 		#optional:class:default:comment:
-		
+
 		#sequence:
 		#sequence:comment:
 		"#sequence:elements:comment:"
-		
+
 		#map:
 		#map:comment:
 		"#map:keys:values:comment:"
@@ -133,8 +133,8 @@ Value >> isEqualValue: anObject [
 
 	self == anObject ifTrue: [ ^ true ].
 	self class = anObject class ifFalse: [ ^ false ].
-	1 to: self class instSize do: [ :i | 
-		((self instVarAt: i) isEqualValue: (anObject instVarAt: i)) 
+	1 to: self class instSize do: [ :i |
+		((self instVarAt: i) isEqualValue: (anObject instVarAt: i))
 			ifFalse: [ ^ false ] ].
 	^ true
 ]
@@ -160,6 +160,6 @@ Value >> printOn: stream [
 
 { #category : #printing }
 Value >> printValueWith: printer [
-	
+
 	^ printer printValue: self arguments: #()
 ]
